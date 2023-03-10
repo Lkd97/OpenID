@@ -1,0 +1,42 @@
+
+<!--Displays only if user is authenticated -->
+<div *ngIf="isAuthenticated; else noAuth">
+  <div class="text-black text-2xl flex justify-center pt-10 font-extralight">Welcome to the main page! </div>
+  <div class="text-black text-2xl flex justify-center pt-1 font-extralight">You have been successfully authenticated and authorized by the OpenID provider.</div>
+  <div class="text-black text-2xl flex justify-center pt-14 font-extralight">
+  <button class="bg-orange-200 rounded-2xl p-2 hover:bg-amber-200 hover:text-white" (click)="logout()">Logout</button>
+  </div>
+  <!--<div class="text-black text-2xl flex justify-center pt-14 font-extralight">
+  <button (click)="logoffAndRevokeTokens()">Logout and revoke tokens</button>
+  </div>
+  <div class="text-black text-2xl flex justify-center pt-14 font-extralight">
+  <button (click)="revokeAccessToken()">Revoke access token</button>
+  </div>
+  <div class="text-black text-2xl flex justify-center pt-14 font-extralight">
+  <button (click)="revokeRefreshToken()">Revoke refresh token</button>
+  </div>
+  <div class="text-black text-2xl flex justify-center pt-14 font-extralight">
+  <button (click)="refreshSession()">Refresh session</button>
+  </div>
+
+  Is Authenticated: {{ isAuthenticated }}
+
+  <br />
+  userData
+  <pre>{{ userData$ | async | json }}</pre>
+
+  <br />
+  -->
+</div>
+
+<ng-template #noAuth>
+  <div noAuth class="text-black text-2xl flex justify-center pt-10 font-extralight">Welcome!</div>
+  <div class="text-black text-2xl flex justify-center pt-1 font-extralight">Please, proceed to authenticate and get authorized in order to access your user information.</div>
+  <div class="text-black text-2xl flex justify-center pt-14 font-extralight">
+    <button class="bg-orange-200 rounded-2xl p-2 hover:bg-amber-200 hover:text-white" (click)="login()">Authenticate with OpenID Connect</button>
+  </div>
+</ng-template>
+
+<!--Configuration loaded:
+<pre>{{ configuration$ | async | json }}</pre>
+-->
