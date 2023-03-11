@@ -21,7 +21,7 @@ class Account {
   async claims(use, scope) { // eslint-disable-line no-unused-vars
     if (this.profile) {
       return {
-        sub: this.accountId, // it is essential to always return a sub claim
+        sub: this.accountId,    // it is essential to always return a sub claim
         email: this.profile.email,
         email_verified: this.profile.email_verified,
         family_name: this.profile.family_name,
@@ -32,8 +32,7 @@ class Account {
     }
 
     return {
-      sub: this.accountId, // it is essential to always return a sub claim
-
+      sub: this.accountId,    // it is essential to always return a sub claim
       address: {
         country: '000',
         formatted: '000',
